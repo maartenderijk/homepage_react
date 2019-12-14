@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
@@ -19,7 +19,7 @@ function Copyright() {
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
       <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+        MdR Website
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -59,10 +59,29 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export default function Album() {
   const classes = useStyles();
+  const [cards, setCards] = useState([]);
+
+  async function fetchData() {
+    const url = "https://maartenderijk.github.io/sitegenerator/snapshots.json";
+    const res = await fetch(url);
+
+    res
+      .json()
+      .then(
+        function(res) {
+          const pictures = (res.splice(-24)).reverse();
+          setCards(pictures);
+        }
+      )
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
 
   return (
     <React.Fragment>
@@ -83,9 +102,7 @@ export default function Album() {
               Album layout
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
-              Something short and leading about the collection below—its contents, the creator, etc.
-              Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-              entirely.
+              Opening van de pagina. Test.
             </Typography>
             <div className={classes.heroButtons}>
               <Grid container spacing={2} justify="center">
@@ -105,21 +122,25 @@ export default function Album() {
         </div>
         <Container className={classes.cardGrid} maxWidth="md">
           {/* End hero unit */}
+
           <Grid container spacing={4}>
-            {cards.map(card => (
-              <Grid item key={card} xs={12} sm={6} md={4}>
+
+            {cards.map((card, index) => (
+              <Grid item key={index} xs={12} sm={6} md={4}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
-                    title="Image title"
+                    image={card.Image}
+                    title={card.Datestring}
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Heading
+                    {card.Datestring}
                     </Typography>
                     <Typography>
-                      This is a media card. You can use this section to describe the content.
+                      Time: {card.Timestring} <br/>
+                      Temperature: {card.Temperature}
+
                     </Typography>
                   </CardContent>
                   <CardActions>
