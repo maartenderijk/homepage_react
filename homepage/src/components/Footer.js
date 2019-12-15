@@ -6,12 +6,14 @@ import Link from '@material-ui/core/Link';
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
+      {'Build with '}
+      <Link color="inherit" href="https://reactjs.org/">
+        React
+      </Link>{' & '}
+
       <Link color="inherit" href="https://material-ui.com/">
-        MdR Website
+        Material - ui ©
       </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
     </Typography>
   );
 }
@@ -28,12 +30,9 @@ export default function Footer() {
   const classes = useStyles();
   return (
     <footer className={classes.footer}>
-      <Typography variant="h6" align="center" gutterBottom>
-        Footer
-          </Typography>
       <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-        Something here to give the footer a purpose!
-          </Typography>
+        By Maarten de Rijk - 2020
+      </Typography>
       <Copyright />
     </footer>
   )

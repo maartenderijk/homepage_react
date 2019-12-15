@@ -16,6 +16,11 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+function openURL() {
+  window.open( 
+    "https://github.com/maartenderijk?tab=repositories", "_blank"); 
+}
+
 export default function Hero() {
   const classes = useStyles();
   return (
@@ -23,27 +28,24 @@ export default function Hero() {
     <div className={classes.heroContent}>
       <Container maxWidth="sm">
         <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
-          Album layout
+          Snapshots
             </Typography>
         <Typography variant="h5" align="center" color="textSecondary" paragraph>
-          Opening van de pagina. Test.
+          One picture a day from my Raspberry Pi.
+          This site updates automatically
             </Typography>
         <div className={classes.heroButtons}>
           <Grid container spacing={2} justify="center">
             <Grid item>
-              <Button variant="contained" color="primary">
-                Main call to action
-                  </Button>
+              <Button variant="contained" color="primary" onClick={openURL}>
+                Open Github
+              </Button>
             </Grid>
-            <Grid item>
-              <Button variant="outlined" color="primary">
-                Secondary action
-                  </Button>
-            </Grid>
+
           </Grid>
         </div>
       </Container>
     </div>
-    
+
   )
 }

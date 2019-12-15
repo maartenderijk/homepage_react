@@ -80,15 +80,11 @@ export default function Album() {
                   <Typography>
                     Time: {card.Timestring} <br />
                     Temperature: {card.Temperature}
-
                   </Typography>
                 </CardContent>
                 <CardActions>
                   <Button size="small" color="primary">
                     View
-                    </Button>
-                  <Button size="small" color="primary">
-                    Edit
                     </Button>
                 </CardActions>
               </Card>

@@ -1,7 +1,7 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
+import ComputerIcon from '@material-ui/icons/Computer';
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -17,9 +17,9 @@ export default function Appbar() {
   return (
     <AppBar position="relative">
       <Toolbar>
-        <CameraIcon className={classes.icon} />
+        <ComputerIcon className={classes.icon} />
         <Typography variant="h6" color="inherit" noWrap>
-          Album layout
+          Raspberry Pi Snapshots
           </Typography>
       </Toolbar>
     </AppBar>
