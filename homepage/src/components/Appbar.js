@@ -15,7 +15,8 @@ const useStyles = makeStyles(theme => ({
 export default function Appbar() {
   const classes = useStyles();
   return (
-    <AppBar position="relative">
+    <React.Fragment>
+    <AppBar position="fixed">
       <Toolbar>
         <ComputerIcon className={classes.icon} />
         <Typography variant="h6" color="inherit" noWrap>
@@ -23,5 +24,7 @@ export default function Appbar() {
           </Typography>
       </Toolbar>
     </AppBar>
+    <Toolbar/>
+    </React.Fragment>
   )
 }
