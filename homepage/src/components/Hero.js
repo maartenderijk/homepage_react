@@ -9,10 +9,10 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles(theme => ({
   heroContent: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
+    padding: theme.spacing(4, 0, 3),
   },
   heroButtons: {
-    marginTop: theme.spacing(4),
+    marginTop: theme.spacing(1),
   },
 }));
 
@@ -27,12 +27,12 @@ export default function Hero() {
 
     <div className={classes.heroContent}>
       <Container maxWidth="sm">
-        <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+        <Typography component="h3" variant="h3" align="center" color="textPrimary" gutterBottom>
           Snapshots
             </Typography>
         <Typography variant="h5" align="center" color="textSecondary" paragraph>
           One picture a day from my Raspberry Pi.
-          This site updates automatically
+          This site updates automatically.
             </Typography>
         <div className={classes.heroButtons}>
           <Grid container spacing={2} justify="center">
