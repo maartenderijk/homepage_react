@@ -40,6 +40,7 @@ export default function Hero() {
               <Button variant="contained" color="primary" onClick={openURL}>
                 Open Github
               </Button>
+             
             </Grid>
 
           </Grid>
