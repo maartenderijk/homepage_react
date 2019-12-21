@@ -14,8 +14,8 @@ const useStyles = makeStyles(theme => ({
 
 
   cardGrid: {
-    paddingTop: theme.spacing(8),
-    paddingBottom: theme.spacing(8),
+    paddingTop: theme.spacing(5),
+    paddingBottom: theme.spacing(5),
   },
   card: {
     height: '100%',
@@ -23,14 +23,14 @@ const useStyles = makeStyles(theme => ({
     flexDirection: 'column',
   },
   cardMedia: {
-    paddingTop: '56.25%', // 16:9
+    paddingTop: '70%', 
   },
   cardContent: {
     flexGrow: 1,
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
+    padding: theme.spacing(3),
   },
 }));
 
@@ -41,16 +41,11 @@ export default function Album() {
 
   async function fetchData() {
     const url = "https://maartenderijk.github.io/sitegenerator/snapshots.json";
-    const res = await fetch(url);
+    const response = await fetch(url);
+    const data = await response.json();
+    const pictures = data.splice(-24).reverse();
+    setCards(pictures);
 
-    res
-      .json()
-      .then(
-        function (res) {
-          const pictures = (res.splice(-24)).reverse();
-          setCards(pictures);
-        }
-      )
   }
 
   useEffect(() => {
