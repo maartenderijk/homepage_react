@@ -3,13 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 
-function rand() {
-  return Math.round(Math.random() * 20) - 10;
-}
-
 function getModalStyle() {
-  const top = 50 + rand();
-  const left = 50 + rand();
+  const top = 50;
+  const left = 50;
 
   return {
     top: `${top}%`,
@@ -21,10 +17,9 @@ function getModalStyle() {
 const useStyles = makeStyles(theme => ({
   paper: {
     position: 'absolute',
-    width: 700,
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(2, 4, 3),
-  },
+    padding: theme.spacing(1, 1, 1),
+  }
 }));
 
 export default function SimpleModal(props) {
@@ -52,9 +47,11 @@ export default function SimpleModal(props) {
         open={open}
         onClose={handleClose}
       >
+        
         <div style={modalStyle} className={classes.paper}>
-          <img src={props.img} alt={'Snapshot'} />
+          <img src={props.img} alt={'Snapshot'} height='auto' width='100%' />
         </div>
+        
       </Modal>
     </div>
   );
