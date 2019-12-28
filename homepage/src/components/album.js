@@ -39,7 +39,7 @@ export default function Album() {
   const [cards, setCards] = useState([]);
 
   async function fetchData() {
-    const url = "https://maartenderijk.github.io/sitegenerator/snapshots.json";
+    const url = "https://maartenderijk.github.io/pi_projects/snapshots.json";
     const response = await fetch(url);
     const data = await response.json();
     const pictures = data.splice(-24).reverse();
